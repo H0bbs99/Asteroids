@@ -1,0 +1,2 @@
+def Player():
+    import circleshape
