@@ -31,13 +31,14 @@ def main():
         
         # Set Screen to Black and refresh
         screen.fill("Black")
-        print("screen filled")
-        #Draws Player
-        print("drawing playwer")
-        user.draw(screen)        
-
         #FPS Timing
         dt = clock.tick(60)/1000
+        
+        #Draws Player
+        user.draw(screen)  
+        user.update(dt)
+
+
 
         pygame.display.flip()
 

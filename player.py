@@ -1,6 +1,6 @@
 from constants import *
 from circleshape import *
-import main
+from main import *
 
 class Player(CircleShape):
     def __init__(self, x, y):
@@ -8,7 +8,7 @@ class Player(CircleShape):
         self.rotation = 0
 
     def draw(self, screen):
-        print(f"Drawing Player at {self.position}")
+        
         pygame.draw.polygon(screen, (255, 255, 255), self.triangle(), width=2)
     
     # in the player class
@@ -19,4 +19,15 @@ class Player(CircleShape):
         b = self.position - forward * self.radius - right
         c = self.position - forward * self.radius + right
         return [a, b, c]
-   
+    
+    # Controling player movment
+    def rotate(self, dt):
+        self.rotation =+ dt * PLAYER_TURN_SPEED
+
+    #Update Method
+    def update(self, dt):
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_a]:
+            self.rotate(dt)
+        if keys[pygame.K_d]:
+            self.rotate(-dt)
