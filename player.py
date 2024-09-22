@@ -6,7 +6,7 @@ class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
         self.rotation = 0
-
+        print(f"Player Class ini Called rotation is {self.rotation}")  #Debug Line
     def draw(self, screen):
         
         pygame.draw.polygon(screen, (255, 255, 255), self.triangle(), width=2)
@@ -22,7 +22,7 @@ class Player(CircleShape):
     
     # Controling player movment
     def rotate(self, dt):
-        self.rotation =+ dt * PLAYER_TURN_SPEED
+        self.rotation += dt * PLAYER_TURN_SPEED
 
     #Update Method
     def update(self, dt):

@@ -31,12 +31,17 @@ def main():
         
         # Set Screen to Black and refresh
         screen.fill("Black")
+        
         #FPS Timing
         dt = clock.tick(60)/1000
-        
-        #Draws Player
+
+        #Draw and Update Player
         user.draw(screen)  
         user.update(dt)
+
+        
+
+
 
 
 
