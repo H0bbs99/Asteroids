@@ -2,10 +2,12 @@
 # the open-source pygame library
 # throughout this file
 import pygame # type: ignore
+from player import *
 from constants import *
+from circleshape import *
 
 def main():
-    pygame.init
+    pygame.init()
     print("Starting asteroids!")
     print(f"Screen width: {SCREEN_WIDTH}\nScreen height: {SCREEN_HEIGHT}")
 
@@ -17,6 +19,9 @@ def main():
     #Starting Screen Display
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
+    #inititate Player 
+    user = Player(SCREEN_WIDTH/2,SCREEN_HEIGHT /2)
+
     # Game Loop
     while True:
         # Allows the "X" button to close the game
@@ -26,10 +31,15 @@ def main():
         
         # Set Screen to Black and refresh
         screen.fill("Black")
-        pygame.display.flip()
+        print("screen filled")
+        #Draws Player
+        print("drawing playwer")
+        user.draw(screen)        
 
         #FPS Timing
-        dt = pygame.time.Clock.tick(clock, 60)/1000
+        dt = clock.tick(60)/1000
+
+        pygame.display.flip()
 
 
 if __name__ == "__main__":
