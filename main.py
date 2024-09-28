@@ -2,10 +2,10 @@
 # the open-source pygame library
 # throughout this file
 import pygame # type: ignore
-from player import *
 from constants import *
-from circleshape import *
-from asteroid import *
+from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 def main():
     pygame.init()
@@ -27,8 +27,9 @@ def main():
 
 
     #initate containers
-    Player.containers = (updatable,drawable)
+    Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
+    AsteroidField.containers = (updatable)
     
     #inititate Player 
     user = Player(SCREEN_WIDTH/2,SCREEN_HEIGHT /2)

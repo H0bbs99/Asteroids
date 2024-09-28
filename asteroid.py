@@ -5,7 +5,6 @@ class Asteroid(CircleShape):
     def __init__(self, x, y, radius):
         self.posit = (x, y)
         self.radius = radius
-        self.containers = []
     
 
     def draw(self, screen):
