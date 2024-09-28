@@ -33,7 +33,8 @@ def main():
     
     #inititate Player 
     user = Player(SCREEN_WIDTH/2,SCREEN_HEIGHT /2)
-    
+    astroids = AsteroidField()
+
 
 
     # Game Loop
@@ -43,6 +44,8 @@ def main():
             if event.type == pygame.QUIT:
                 return
         
+        for stuff in updatable:
+            stuff.update(dt)        
         # Set Screen to Black and refresh
         screen.fill("Black")
         
@@ -53,8 +56,7 @@ def main():
         for stuff in drawable:
             stuff.draw(screen)
 
-        for stuff in updatable:
-            stuff.update(dt)
+
         
 
             
