@@ -1,12 +1,15 @@
-from constants import *
 from circleshape import *
-from main import *
+from constants import *
+
 
 class Player(CircleShape):
     def __init__(self, x, y):
         super().__init__(x, y, PLAYER_RADIUS)
+        self.containers = []
         self.rotation = 0
-        print(f"Player Class ini Called rotation is {self.rotation}")  #Debug Line
+        
+        
+
     def draw(self, screen):
         
         pygame.draw.polygon(screen, (255, 255, 255), self.triangle(), width=2)
