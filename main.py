@@ -5,6 +5,7 @@ import pygame # type: ignore
 from player import *
 from constants import *
 from circleshape import *
+from asteroid import *
 
 def main():
     pygame.init()
@@ -14,6 +15,7 @@ def main():
     #Containers
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
 
     # Set FPS
     clock = pygame.time.Clock()
@@ -26,6 +28,7 @@ def main():
 
     #initate containers
     Player.containers = (updatable,drawable)
+    Asteroid.containers = (asteroids, updatable, drawable)
     
     #inititate Player 
     user = Player(SCREEN_WIDTH/2,SCREEN_HEIGHT /2)
