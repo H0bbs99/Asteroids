@@ -45,7 +45,14 @@ def main():
                 return
         
         for stuff in updatable:
-            stuff.update(dt)        
+            stuff.update(dt)
+
+        for astro in asteroids:
+            if astro.collision(user) == True:
+                print("Game Over!")
+                pygame.quit()
+                return
+            
         # Set Screen to Black and refresh
         screen.fill("Black")
         
