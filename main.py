@@ -48,7 +48,7 @@ def main():
             stuff.update(dt)
 
         for astro in asteroids:
-            if astro.collision(user) == True:
+            if astro.collision(user):
                 print("Game Over!")
                 pygame.quit()
                 return
