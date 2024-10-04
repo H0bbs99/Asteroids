@@ -57,7 +57,7 @@ def main():
         
             for bullet in shots:
                 if astro.collision(bullet):
-                    astro.kill()
+                    astro.split()
                     bullet.kill()
    
             
