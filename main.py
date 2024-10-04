@@ -17,6 +17,7 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
 
     # Set FPS
     clock = pygame.time.Clock()
@@ -25,17 +26,16 @@ def main():
 
     #Starting Screen Display
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-
+    
     #initate containers
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
-    AsteroidField.containers = (updatable)
-    Shot.containers = (updatable, drawable)
+    AsteroidField.containers = updatable
+    Shot.containers = (updatable, drawable, shots)
     
     #inititate Player 
     user = Player(SCREEN_WIDTH/2,SCREEN_HEIGHT /2)
-    astroids = AsteroidField()
+    asteroid_field = AsteroidField()
 
 
 
@@ -54,6 +54,12 @@ def main():
                 print("Game Over!")
                 pygame.quit()
                 return
+        
+            for bullet in shots:
+                if astro.collision(bullet):
+                    astro.kill()
+                    bullet.kill()
+   
             
         # Set Screen to Black and refresh
         screen.fill("Black")
